@@ -15,7 +15,7 @@ async function parseContacts() {
     }
 }
 
-function listContacts() {
+async function listContacts() {
     try {
         const contacts = await parseContacts();
         console.table(contacts)
@@ -24,7 +24,7 @@ function listContacts() {
     }
 }
 
-function getContactById(contactId) {
+async function getContactById(contactId) {
     try {
         const contacts = await parseContacts()
         const contactById = contacts.find(({ id }) => id === contactId)
@@ -34,7 +34,7 @@ function getContactById(contactId) {
     }
 }
 
-function removeContact(contactId) {
+async function removeContact(contactId) {
     try {
         const contacts = await parseContacts()
         const contactById = contacts.find(({ id }) => id === contactId)
@@ -47,7 +47,7 @@ function removeContact(contactId) {
     }
 }
 
-function addContact(name, email, phone) {
+async function addContact(name, email, phone) {
     try {
         const contacts = await parseContacts()
         const newListContacts = [...contacts, newContact];
