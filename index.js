@@ -5,6 +5,8 @@ const {
   addContact,
 } = require("./contacts.js");
 
+const argv = require("yargs").argv;
+
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
