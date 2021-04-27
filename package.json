@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MironenkoNadiia/node-hw1#readme",
   "dependencies": {
+    "argv": "^0.0.2",
     "node": "^16.0.0",
     "uuid": "^8.3.2"
   },
