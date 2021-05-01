@@ -5,13 +5,12 @@ const { v4: uuidv4 } = require("uuid");
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 async function parseContacts() {
-        const contacts = await fs.readFile(contactsPath, 'utf-8', (error) => {
-            if (error) {
-                console.error(error.message)
-                return
-            };
-        });
+    try {
+        const contacts = await fs.readFile(contactsPath, 'utf-8', (error))
         return JSON.parse(contacts);
+    } catch (error) {
+        console.error(error.message)
+    }
     } 
 
 
