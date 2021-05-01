@@ -6,7 +6,8 @@ const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 async function parseContacts() {
     try {
-        const contacts = await fs.readFile(contactsPath, 'utf-8', (error))
+        const contacts = await fs.readFile(contactsPath, 'utf-8')
+        
         return JSON.parse(contacts);
     } catch (error) {
         console.error(error.message)
@@ -36,11 +37,9 @@ async function getContactById(contactId) {
 async function removeContact(contactId) {
     try {
         const contacts = await parseContacts()
-        const contactById = contacts.find(({ id }) => id === contactId)
         const filteredContacts = contacts.filter(({ id }) => id !== contactId)
         
         await fs.writeFile(contactsPath, JSON.stringify(filteredContacts, null, 2))
-        console.table(contactById);
         console.table(filteredContacts)
     } catch (error) {
         console.log(error.message);
